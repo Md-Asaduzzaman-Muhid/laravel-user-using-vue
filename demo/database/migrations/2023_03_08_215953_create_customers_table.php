@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id');
+            $table->string('billing_adddress');
+            $table->string('shipping_adddress');
+            $table->double('point', 4, 2);
             $table->timestamps();
         });
     }

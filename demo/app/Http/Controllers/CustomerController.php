@@ -12,7 +12,9 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        $customer = Customer::get();
+        dd($customer);
+        view('user.dashboard');
     }
 
     /**
