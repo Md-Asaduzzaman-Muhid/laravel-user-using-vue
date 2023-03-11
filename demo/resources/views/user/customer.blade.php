@@ -1,11 +1,24 @@
 @extends('layouts.app')
 
+@if (session('success'))
+      <div class="alert alert-success">
+         {!! session('success') !!}
+      </div>
+@endif
+@if (session('error'))
+      <div class="alert alert-warning">
+         {!! session('error') !!}
+      </div>
+@endif
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Customers') }}</div>
+                <div class="card-header">{{ __('Customers') }}
+                    <a href="{{ URL('/user/customers/create') }}" class="ml-auto btn btn-primary">Add New</a>
+                </div>
                 <div class="card-body table-responsive">
                     @if(empty($customers)):
                         <p>No Customer Found ... </p>
