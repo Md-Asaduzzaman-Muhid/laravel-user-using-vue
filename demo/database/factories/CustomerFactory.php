@@ -18,9 +18,9 @@ class CustomerFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => rand(1, 10),
-            'billing_adddress' => Str::random(10).'Billing Address',
-            'shipping_adddress' => Str::random(10).'Shipping Address',
+            'user_id' => rand(1, 12),
+            'billing_address' => Str::random(10).'Billing Address',
+            'shipping_address' => Str::random(10).'Shipping Address',
             'point' => rand(20, 29)
         ];
     }

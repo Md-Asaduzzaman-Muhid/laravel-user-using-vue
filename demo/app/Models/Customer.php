@@ -10,8 +10,8 @@ class Customer extends Model
     use HasFactory;
     protected $table = 'customers';
 
-    public function user(): BelongsTo
+    public function user()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo('App\Models\User', 'user_id');
     }
 }

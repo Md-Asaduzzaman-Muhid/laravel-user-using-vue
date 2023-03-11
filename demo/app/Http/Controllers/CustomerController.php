@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use App\Models\User;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 
@@ -12,9 +14,9 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customer = Customer::get();
-        dd($customer);
-        view('user.dashboard');
+        $user_id = \Auth::user()->id;
+        $customers = DB::table('customers')->where('user_id',$user_id)->get();
+        return view('user.customer', compact("customers"));
     }
 
     /**
@@ -44,9 +46,9 @@ class CustomerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Customer $customer)
+    public function edit($id)
     {
-        //
+        dd($id);
     }
 
     /**
@@ -60,8 +62,8 @@ class CustomerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Customer $customer)
+    public function destroy($id)
     {
-        //
+       dd($id);
     }
 }

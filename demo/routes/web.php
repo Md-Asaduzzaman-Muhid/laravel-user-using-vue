@@ -14,9 +14,13 @@ use App\Http\Controllers\CustomerController;
 |
 */
 Route::prefix('user')->group(function () {
-    Route::get('/dashboard',[CustomerController::class, 'index']);
+    Route::resource('customers',  CustomerController::class);
 });
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
